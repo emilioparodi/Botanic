@@ -2,7 +2,7 @@ const fetch = require('node-fetch');
 
 // The parameters for our POST request
 const params = {
-  origin: 'localhost',
+  origin: 'https://botanic.vercel.app',
   ip: 'THE-WEBSITE-USER-IP',
   token: 'QMoYTqrtuXFuatJhMzVfG1L_e6C_J9_sVNaDovTMrtQ'
 }
