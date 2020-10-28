@@ -1,11 +1,19 @@
-import axios from 'axios'
+const fetch = require('node-fetch');
 
-document.addEventListener('DOMContentLoaded', () => {
-    const form = document.querySelector('form')
-    form.addEventListener('submit', event => {
-        event.preventDefault()
-        const plant = document.querySelector('input').value
-        const response = axios.get(`https://trefle.io/api/v1/plants?token=QMoYTqrtuXFuatJhMzVfG1L_e6C_J9_sVNaDovTMrtQ&q=${plant}`)
-        console.log(response.data)
-    })
-})
+// The parameters for our POST request
+const params = {
+  origin: 'localhost',
+  ip: 'THE-WEBSITE-USER-IP',
+  token: 'QMoYTqrtuXFuatJhMzVfG1L_e6C_J9_sVNaDovTMrtQ'
+}
+
+(async () => {
+  const response = await fetch(
+    'https://trefle.io/api/auth/claim', {
+      method: 'post',
+      body: JSON.stringify(params),
+      headers: { 'Content-Type': 'application/json' }
+    });
+  const json = await response.json();
+  console.log(json);
+})();
